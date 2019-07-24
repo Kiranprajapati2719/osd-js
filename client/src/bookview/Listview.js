@@ -14,37 +14,37 @@ export default class Listview extends Component {
   render() {
     return (
       <div>
-        <div class="booklist">
+        <div className="booklist">
           <div class="bookitem">
             <img src={img1} alt='book' />
           </div>
-          <div class="bookitem">
+          <div className="bookitem">
             <img src={img2} alt='book' />
           </div>
-          <div class="bookitem">
+          <div className="bookitem">
             <img src={img3} alt='book' />
           </div>
-          <div class="bookitem">
+          <div className="bookitem">
             <img src={img4} alt='book' />
           </div>
-          <div class="bookitem">
+          <div className="bookitem">
             <img src={img4} alt='book' />
           </div>
         </div>
-        <div class="booklist">
-          <div class="bookitem">
+        <div className="booklist">
+          <div className="bookitem">
             <img src={img5} alt='book' />
           </div>
-          <div class="bookitem">
+          <div className="bookitem">
             <img src={img6} alt='book' />
           </div>
-          <div class="bookitem">
+          <div className="bookitem">
             <img src={img7} alt='book' />
           </div>
-          <div class="bookitem">
+          <div className="bookitem">
             <img src={img8} alt='book' />
           </div>
-          <div class="bookitem">
+          <div className="bookitem">
             <img src={img4} alt='book' />
           </div>
         </div>
