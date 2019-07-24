@@ -1,0 +1,20 @@
+.booklist {
+  display: flex;
+  margin: 5vh 0;
+  align-content: center;
+  justify-content:  center;
+}
+
+.bookitem{
+  margin:3vh auto; 
+}
+
+.bookitem > img{
+  box-shadow:2px 2px 15px 10px #ece5e575;
+  border: 8px solid #eae1e187;
+  border-radius: 8px;
+  height: auto;
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+}
