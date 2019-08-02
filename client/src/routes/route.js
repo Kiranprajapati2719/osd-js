@@ -1,9 +1,9 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch, } from 'react-router-dom';
-import Login from '../login/Login';
-import Bookview from '../bookview/Bookview';
-import Listview from '../bookview/Listview';
-import Homepage from '../homepage/Homepage';
+import Login from '../components/login/Login';
+import Bookview from '../components/bookview/Bookview';
+import Listview from '../components/bookview/Listview';
+import Homepage from '../components/homepage/Homepage';
 
 export default AppRouter => (
     <Router>
