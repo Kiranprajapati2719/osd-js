@@ -5,8 +5,7 @@ const express = require('express');
 const login = require('./login'),
   logout = require('./logout'),
   home = require('./home'),
-  register = require('./register'),
-  authGoogle = require('./authGoogle'),
+  register = require('./register'), 
   dashboard = require('./dashboard');
 
 module.exports = (app) => {
@@ -15,6 +14,5 @@ module.exports = (app) => {
   app.use('/login', login);
   app.use('/logout', logout);
   app.use('/dashboard', dashboard);
-  app.use('/register', register);
-  app.use('/auth/google', authGoogle);
+  app.use('/register', register); 
 }

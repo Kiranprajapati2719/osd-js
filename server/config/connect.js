@@ -10,13 +10,12 @@ module.exports = async () => {
     process.env.DB,
     {
       useNewUrlParser: true,
-      useCreateIndex: true,
-      dbName: 'library'
+      useCreateIndex: true
     }
   )
     .then(() => console.log('Database connected ...'))
     .catch((err) => {
       console.log(err.message);
-      process.exit(0);
+      process.exit(1);
     });
 };

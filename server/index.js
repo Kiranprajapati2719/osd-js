@@ -4,8 +4,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const helmet = require('helmet');
-require('dotenv').config();
-
 
 const app = express();
 
@@ -17,8 +15,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Session
+require('dotenv').config();
 require('./config/connect')();
-// require('./config/session')(app);
+require('./config/session')(app);
 
 // passport middleware
 app.use(passport.initialize());

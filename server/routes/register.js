@@ -11,15 +11,14 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
 
+  console.log('Inside post register');
+
   // if (Object.keys(req.body).length === 0) {
   //   return res.send('Cannot add user... No data provided');
   // }
 
   const { email, password } = req.body;
 
-  if (error) {
-    return res.send(error.details[0].message);
-  }
   try {
     const checkUser = await User.findOne({ email });
 
