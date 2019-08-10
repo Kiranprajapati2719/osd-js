@@ -8,18 +8,14 @@
 	height: 100vh;
 	margin: -20px 0 50px;
 }
-
-h1 {
-  font-weight: bold;
-  margin: 0 0 4vh 0;
-}
-
+ 
 p {
   font-size: 14px;
   font-weight: 100;
   line-height: 20px;
   letter-spacing: 0.5px;
-  margin: 20px 0 30px;
+  margin: 10vh 0;
+  padding: 0 5vw;
 }
 
 span {
@@ -35,6 +31,7 @@ a {
 .form-container button{
   margin-top: 4vh;
 }
+
 button {
   border-radius: 20px;
   border: 1px solid #845EC2;
@@ -45,7 +42,7 @@ button {
   padding: 12px 45px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  transition: transform 80ms ease-in;
+  transition: transform 80ms ease-in; 
 }
 
 button:active {
@@ -80,21 +77,7 @@ input {
   margin: 8px 0;
   width: 100%;
 }
-
-.social-container {
-  margin: 20px 0;
-}
-
-.social-container a {
-  border: 1px solid #dddddd;
-  border-radius: 50%;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 5px;
-  height: 40px;
-  width: 40px;
-}
+ 
 .container {
   background-color: #ffffff;
   border-radius: 10px;
@@ -215,4 +198,12 @@ input {
 
 .container.right-panel-active .overlay-right {
   transform: translateX(20%);
+}
+
+span{
+  color: #505050;
+}
+
+.sign-in-container  h2 {
+  margin-bottom: 10vh;
 }

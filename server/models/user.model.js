@@ -17,13 +17,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     minlength: 8
   },
-  phone:{
-    type: Number,
-    minlength:10
-  },
-  dob:{
-    type: Date
-  }
+  // phone:{
+  //   type: Number,
+  //   minlength:10
+  // },
+  // dob:{
+  //   type: Date
+  // }
 });
 
 const User = mongoose.model('User', userSchema);

@@ -8,7 +8,7 @@ const helmet = require('helmet');
 const app = express();
 
 // Helmet middleware
-app.use(helmet());
+// app.use(helmet());
 
 // Bodyparser middleware
 app.use(bodyParser.urlencoded({ extended: false }));

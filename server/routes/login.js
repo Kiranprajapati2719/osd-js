@@ -26,7 +26,8 @@ router.post('/', (req, res, next) => {
         if (err) {
           return next(err);
         }
-        return res.redirect('/dashboard');
+        console.log(user);
+        return res.send(`Logged in as ${user}`);
       });
     })(req, res, next);
 });
