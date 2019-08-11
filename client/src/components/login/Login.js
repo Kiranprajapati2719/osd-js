@@ -28,8 +28,7 @@ export default class Login extends Component {
       }
     }else if(task === 'signin'){
       this.setState({error: ''});
-      const user = {password, email};
-      console.log(user);
+      const user = {password, email}; 
       axios.post("/login",user)
       .then(res=>alert(res.data))
       .catch(err=>console.log(err.message));
