@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './login.css';
+import {Redirect} from 'react-router-dom';
 import axios from 'axios';
+import './login.css';
 
 export default class Login extends Component {
 
@@ -10,7 +11,8 @@ export default class Login extends Component {
     confirmPassword:'',
     username: '',
     error:'',
-    task:''
+    task:'',
+    loggedin: false
   };
 
   handleSubmit = e => {
@@ -21,7 +23,9 @@ export default class Login extends Component {
         this.setState({error: ''});
         const user = {username, password, email};
         axios.post("/register",user)
-        .then(res=>alert(res.data))
+        .then(res=>{
+          alert(res.data);
+        })
         .catch(err=>console.log(err.message)); 
       }else{
         this.setState({error: 'Password do not match'});
@@ -30,7 +34,13 @@ export default class Login extends Component {
       this.setState({error: ''});
       const user = {password, email}; 
       axios.post("/login",user)
-      .then(res=>alert(res.data))
+      .then(res=> {
+        if(res.data._id){
+          this.setState({loggedin: true});
+        }else{
+          alert(res.data);
+        }
+      })
       .catch(err=>console.log(err.message));
     }
   };
@@ -40,6 +50,10 @@ export default class Login extends Component {
   };
 
   render() {
+    if(this.state.loggedin) { 
+      return <Redirect to="/search"/> 
+    }
+
     return (
       <div className="parent">
         <div className="container" id="container">

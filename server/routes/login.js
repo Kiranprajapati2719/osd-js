@@ -27,7 +27,7 @@ router.post('/', (req, res, next) => {
           return next(err);
         }
         console.log(user);
-        return res.send(`Logged in as ${user.username}`);
+        return res.send(user);
       });
     })(req, res, next);
 });
