@@ -1,0 +1,20 @@
+verison: '3.7'
+
+services:
+    server:
+        build: server/.
+        command: npm run dev
+        volumes:
+            - ./server:/usr/app/server
+        environment:
+            DATABASE_URL: postgres://todoapp@postgres/todos
+            
+    client:
+        build: client/.
+        command: npm run dev
+        volumes:
+            - ./client:/usr/app/client
+        ports:
+            - "80:3000"
+        environment:
+            DATABASE_URL: postgres://todoapp@postgres/todos
