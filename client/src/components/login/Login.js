@@ -1,61 +1,76 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import NotificationAlert from 'react-notification-alert';
 import './login.css';
 
 export default class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: '',
+      password: '',
+      confirmPassword: '',
+      username: '',
+      error: '',
+      task: '',
+      loggedin: false
+    };
+    this.notify = React.ref;
+  }
 
-  state ={
-    email: '',
-    password: '',
-    confirmPassword:'',
-    username: '',
-    error:'',
-    task:'',
-    loggedin: false
+  initNotify = (msg) => {
+    const options = {
+      place: 'tc',
+      message: msg,
+      type: "danger",
+      autoDismiss: 3
+    };
+    this.refs.notify.notificationAlert(options);
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    const {username, password, confirmPassword, email, task} = this.state;
-    if(task === 'signup'){
-      if(password === confirmPassword){
-        this.setState({error: ''});
-        const user = {username, password, email};
-        axios.post("/register",user)
-        .then(res=>{
-          alert(res.data);
-        })
-        .catch(err=>console.log(err.message)); 
-      }else{
-        this.setState({error: 'Password do not match'});
+    const { username, password, confirmPassword, email, task } = this.state;
+    if (task === 'signup') {
+      if (password === confirmPassword) {
+        this.setState({ error: '' });
+        const user = { username, password, email };
+        axios.post("/register", user)
+          .then(res => {
+            alert(res.data);
+          })
+          .catch(err => console.log(err.message));
+      } else {
+        this.setState({ error: 'Password do not match' });
       }
-    }else if(task === 'signin'){
-      this.setState({error: ''});
-      const user = {password, email}; 
-      axios.post("/login",user)
-      .then(res=> {
-        if(res.data._id){
-          this.setState({loggedin: true});
-        }else{
-          alert(res.data);
-        }
-      })
-      .catch(err=>console.log(err.message));
+    } else if (task === 'signin') {
+      this.setState({ error: '' });
+      const user = { password, email };
+      axios.post("/login", user)
+        .then(res => {
+          if (res.data._id) {
+            this.setState({ loggedin: true });
+          } else {
+            alert(res.data);
+          }
+        })
+        .catch(err => console.log(err.message));
     }
   };
 
   handleInput = e => {
-    this.setState({[e.target.name]: e.target.value});
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
-    if(this.state.loggedin) { 
-      return <Redirect to="/search"/> 
+    if (this.state.loggedin) {
+      return <Redirect push to="/search" />
     }
 
     return (
       <div className="parent">
+        <NotificationAlert ref="notify" />
         <div className="container" id="container">
           <div className="form-container sign-up-container">
           </div>
@@ -66,20 +81,20 @@ export default class Login extends Component {
           <div className="form-container sign-up-container">
             <form onSubmit={this.handleSubmit}>
               <h2>Create Account</h2>
-              <input type="text" placeholder="Name" name="username" required onChange={this.handleInput}/>
-              <input type="email" placeholder="Email" name="email" required onChange={this.handleInput}/>
+              <input type="text" placeholder="Name" name="username" required onChange={this.handleInput} />
+              <input type="email" placeholder="Email" name="email" required onChange={this.handleInput} />
               <input type="password" placeholder="Password" name="password" required onChange={this.handleInput} />
               <input type="password" placeholder="Confirm Password" name="confirmPassword" required onChange={this.handleInput} />
-              {(this.state.error) ? <span> {this.state.error} </span>:null }
-              <button type="submit" onClick={()=>this.setState({task: 'signup'})}>Register</button>
+              {(this.state.error) ? <span> {this.state.error} </span> : null}
+              <button type="submit" onClick={() => this.setState({ task: 'signup' })}>Register</button>
             </form>
           </div>
           <div className="form-container sign-in-container">
             <form onSubmit={this.handleSubmit}>
               <h2>Sign in</h2>
-              <input type="email" placeholder="Email" name="email" required onChange={this.handleInput}/>
-              <input type="password" placeholder="Password" name="password" required onChange={this.handleInput}/>
-              <button type="submit"  onClick={()=>this.setState({task: 'signin'})}>Sign In</button>
+              <input type="email" placeholder="Email" name="email" required onChange={this.handleInput} />
+              <input type="password" placeholder="Password" name="password" required onChange={this.handleInput} />
+              <button type="submit" onClick={() => this.setState({ task: 'signin' })}>Sign In</button>
             </form>
           </div>
           <div className="overlay-container">
