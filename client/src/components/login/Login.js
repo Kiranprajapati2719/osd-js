@@ -52,7 +52,7 @@ export default class Login extends Component {
           if (res.data._id) {
             this.setState({ loggedin: true });
           } else {
-            alert(res.data);
+            this.setState({ error: res.data });
           }
         })
         .catch(err => console.log(err.message));
@@ -94,6 +94,7 @@ export default class Login extends Component {
               <h2>Sign in</h2>
               <input type="email" placeholder="Email" name="email" required onChange={this.handleInput} />
               <input type="password" placeholder="Password" name="password" required onChange={this.handleInput} />
+              {(this.state.error) ? <span> {this.state.error} </span> : null}
               <button type="submit" onClick={() => this.setState({ task: 'signin' })}>Sign In</button>
             </form>
           </div>
