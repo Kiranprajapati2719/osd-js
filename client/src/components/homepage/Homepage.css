@@ -1,0 +1,19 @@
+.headingPage{
+    display: flex;
+    flex-direction: row;
+    height:90vh;}
+  
+.bannerText {
+    flex:1;}  
+    
+.bannerImage {
+    flex:1;
+    margin:auto 0;}
+
+.banner{
+    width:50%;
+    height:auto;
+    margin:0 3vw ;
+    float: right;}
+
+
