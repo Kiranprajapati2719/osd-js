@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import NotificationAlert from 'react-notification-alert';
 import './login.css';
 
 export default class Login extends Component {
@@ -16,18 +15,7 @@ export default class Login extends Component {
       task: '',
       loggedin: false
     };
-    this.notify = React.ref;
   }
-
-  initNotify = (msg) => {
-    const options = {
-      place: 'tc',
-      message: msg,
-      type: "danger",
-      autoDismiss: 3
-    };
-    this.refs.notify.notificationAlert(options);
-  };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -70,7 +58,6 @@ export default class Login extends Component {
 
     return (
       <div className="parent">
-        <NotificationAlert ref="notify" />
         <div className="container" id="container">
           <div className="form-container sign-up-container">
           </div>
